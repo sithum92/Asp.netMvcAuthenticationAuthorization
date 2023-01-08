@@ -18,7 +18,11 @@ namespace Asp.netMvcAuthenticationAuthorization
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
-            //Custom Code By Sithum
+
+            //1.3 Thired step
+            //Custom Code By Sithum 
+            //for Create a role with asp.net identity
+
             app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user

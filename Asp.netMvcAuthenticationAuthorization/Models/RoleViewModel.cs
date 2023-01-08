@@ -5,6 +5,9 @@ using System.Web;
 
 namespace Asp.netMvcAuthenticationAuthorization.Models
 {
+    //1.4 forth step
+    //Custom Code By Sithum 
+    //for Create a role with asp.net identity
     public class RoleViewModel
     {
         public RoleViewModel() { }

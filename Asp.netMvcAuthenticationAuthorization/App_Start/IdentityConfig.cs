@@ -107,7 +107,9 @@ namespace Asp.netMvcAuthenticationAuthorization
         }
     }
 
-    //Custom Code By Sithum
+    //1.2 Second step
+    //Custom Code By Sithum 
+    //for Create a role with asp.net identity
 
     public class ApplicationRoleManager : RoleManager<ApplicationRole>
     {

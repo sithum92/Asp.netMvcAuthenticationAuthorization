@@ -11,8 +11,11 @@ namespace Asp.netMvcAuthenticationAuthorization.Controllers
 {
     public class RoleController : Controller
     {
+        //1.5 fifth step
+        //Custom Code By Sithum 
+        //for Create a role with asp.net identity 
 
-         private ApplicationRoleManager _roleManager;
+        private ApplicationRoleManager _roleManager;
 
         public RoleController()
         {

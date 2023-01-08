@@ -33,7 +33,9 @@ namespace Asp.netMvcAuthenticationAuthorization.Models
         public System.Data.Entity.DbSet<Asp.netMvcAuthenticationAuthorization.Models.RoleViewModel> RoleViewModels { get; set; }
     }
 
+    //1.1 first step
     //Custom Code By Sithum 
+    //for Create a role with asp.net identity
     public class ApplicationRole : IdentityRole
     { 
          public ApplicationRole() : base() { }

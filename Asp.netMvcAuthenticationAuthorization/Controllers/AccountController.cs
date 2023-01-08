@@ -17,7 +17,7 @@ namespace Asp.netMvcAuthenticationAuthorization.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        //For Add User Role
         public AccountController()
         {
         }
