@@ -252,4 +252,6 @@ In App_Start Open FilterConfig and add following Code Snippet to RegisterGlobalF
             //Custom Code Snippet By Sithum
             filters.Add(new AuthorizeAttribute());
 
-
+4) Add Local authorized attribute to Controller
+	//Add following Code Snippet to any controller with role name
+ [Authorize(Roles = "Admin")]
