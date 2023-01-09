@@ -8,7 +8,10 @@ fellow up folling instructions along with the repository for better understandin
 
 1.1) Open Model and in IdentityModels.cs class add folling code snippet 
 //( Models -> IdentityModels.cs) 
-//Custom Code By Sithum
+
+//1.1 first step
+    //Custom Code By Sithum 
+    //for Create a role with asp.net identity
 
     public class ApplicationRole : IdentityRole
     {  //Custom Code By Sithum
@@ -20,8 +23,12 @@ fellow up folling instructions along with the repository for better understandin
 1.2) Open App_Start and in IdentityConfig.cs class add folling code snippet 
 //(App_Start -> IdentityConfig.cs)
 
+//1.2 first step
+       //Custom Code By Sithum 
+      //for Create a role with asp.net identity
+      
             public class ApplicationRoleManager : RoleManager<ApplicationRole>
-    { //Custom Code By Sithum
+    { 
         public ApplicationRoleManager(IRoleStore<ApplicationRole, string> roleStore) : base(roleStore) { }
 
         public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext context)
@@ -35,7 +42,10 @@ fellow up folling instructions along with the repository for better understandin
 
 1.3) In App_Start folder open Startup.Auth.cs class and in method "public void ConfigureAuth(IAppBuilder app)"method add folling code snippet 
 //( App_Start->Startup.Auth.cs->  public void ConfigureAuth(IAppBuilder app) 
-//Custom Code By Sithum
+
+   //1.3 Thired step
+            //Custom Code By Sithum 
+            //for Create a role with asp.net identity
 
  app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
@@ -43,7 +53,10 @@ fellow up folling instructions along with the repository for better understandin
 
 1.4) Open Models create model name as "RoleViewModel"and add folowing code 
 //(Models->RoleViewModel) 
-//Custom Code By Sithum
+
+ //1.4 forth step
+    //Custom Code By Sithum 
+    //for Create a role with asp.net identity
 
  public class RoleViewModel
     {
@@ -62,7 +75,10 @@ fellow up folling instructions along with the repository for better understandin
 
 1.5) Open Controllers ans add controller name as "RoleController" and add folowing code 
 //(Controllers->RoleController.cs)
-//Custom Code By Sithum
+
+   //1.5 fifth step
+        //Custom Code By Sithum 
+        //for Create a role with asp.net identity 
 
     public class RoleController : Controller
     {
