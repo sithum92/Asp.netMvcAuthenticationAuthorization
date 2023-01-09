@@ -174,4 +174,72 @@ fellow up folling instructions along with the repository for better understandin
 
 
 
+## 2. Add user to ROLE WITH ASP.NET IDENTITY
+
+2.1) Open Controllers->AccountController and add following code snippet
+
+         //2.1 first step
+        //For Add User Role
+        //Custom Code By Sithum 
+
+        private ApplicationRoleManager _roleManager;
+
+2.2) In Controllers->AccountController and add following code snippet
+
+	 //2.2 first step
+        //For Add User Role
+        //Custom Code By Sithum 
+
+      public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
+
+        }
+
+2.3)In Controllers->AccountController and in Register Method(GET) add following code snippet
+  //2.3 Thired step for  Add User to Role
+            //For Add User Role
+            //Custom Code By Sithum 
+
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in RoleManager.Roles)
+                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            ViewBag.Roles = list;
+
+
+
+2.4)In Controllers->AccountController and in Register Method(POST) in Second if statement( if (result.Succeeded))  add following code snippet
+
+ // 2.4 Forth step for  Add User to Role
+                    //For Add User Role
+                    //Custom Code By Sithum 
+
+                    result = await UserManager.AddToRoleAsync(user.Id,model.RoleName);
+
+2.5) in Models->AccountViewModel in RegisterViewModel add Following Code snippet
+
+ // 2.5 fifth step for  Add User to Role
+        //For Add User Role
+        //Custom Code By Sithum 
+        public string RoleName { get; set; }
+
+
+2.66) In Views -> Register add following Code snippet
+    // 2.6 sixth step for  Add User to Role
+    //For Add User Role
+    //Custom Code By Sithum
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+          @Html.DropDownListFor(m=> m.RoleName, new SelectList(ViewBag.Roles,"Value","Text",new { @class = "form-control"}))
+        </div>
+    </div>
 
