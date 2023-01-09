@@ -64,6 +64,37 @@ namespace Asp.netMvcAuthenticationAuthorization.Models
 
     public class RegisterViewModel
     {
+        //Add Custom Fields For Registration
+
+        [Required]
+        [Display(Name = "Staff No")]
+        public string StaffNo { get; set; }
+
+
+        [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "NIC")]
+        public string NIC { get; set; }
+
+        [Required]
+        [Display(Name = "Mobile")]
+        public string Mobile { get; set; }
+
+        [Required]
+        [Display(Name = "Join Date")]
+        public string JoinDate { get; set; }
+
+        [Required]
+        [Display(Name = "Notes")]
+        public string Notes { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

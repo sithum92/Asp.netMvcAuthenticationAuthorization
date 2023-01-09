@@ -243,7 +243,7 @@ fellow up folling instructions along with the repository for better understandin
         </div>
     </div>
     
-    
+    ##Add Global authorized attribute for all Controllers
 3)Add Global authorized attribute for all Controllers
 
 In App_Start Open FilterConfig and add following Code Snippet to RegisterGlobalFilters method
@@ -252,6 +252,53 @@ In App_Start Open FilterConfig and add following Code Snippet to RegisterGlobalF
             //Custom Code Snippet By Sithum
             filters.Add(new AuthorizeAttribute());
 
+	##Add Local authorized attribute to Controller
 4) Add Local authorized attribute to Controller
 	//Add following Code Snippet to any controller with role name
  [Authorize(Roles = "Admin")]
+	
+	##Add Custom Authorize Attribute To Soluction 
+5)Add Custom Authorize Attribute To Solution  
+	
+
+5) Add Custom Authorize Attribute To Soluction 
+5.1)Add CustomAuthorizeAttribute.cs to Solution  with following code snippet
+
+
+ [AttributeUsage(AttributeTargets.Method)]
+    public class CustomAuthorizeAttribute : AuthorizeAttribute
+    {
+
+        public string ViewName { get; set; }
+
+
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+            IsUserAuthorized(filterContext);
+        }
+
+        void IsUserAuthorized(AuthorizationContext filterContext)
+        {
+            //user is authorized
+            if (filterContext.Result == null)
+                return;
+           if (filterContext.HttpContext.User.Identity.IsAuthenticated)
+            { 
+            ViewDataDictionary dictionary = new ViewDataDictionary();
+                dictionary.Add("Message","You Are Not Autherized!");
+                var result = new ViewResult() { ViewName = this.ViewName, ViewData = dictionary };
+                filterContext.Result = result;
+            }
+        }
+
+    }
+
+5.2) add following code snippet to above the controller you want
+ [CustomAuthorize(Roles = "Admin")]
+
+
+
+
+
+

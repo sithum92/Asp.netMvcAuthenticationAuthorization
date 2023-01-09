@@ -187,8 +187,8 @@ namespace Asp.netMvcAuthenticationAuthorization.Controllers
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            {        //Add Custom Fields For Registration
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email , StaffNo = model.StaffNo, FullName = model.FullName, Address = model.Address, NIC = model.NIC, Mobile = model.Mobile, JoinDate = model.JoinDate, Notes = model.Notes };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

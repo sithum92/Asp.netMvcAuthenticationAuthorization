@@ -184,6 +184,10 @@
     <Compile Include="Migrations\202301050944512_role-force.designer.cs">
       <DependentUpon>202301050944512_role-force.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301120500514_AddCustomFieldsForRegistration.cs" />
+    <Compile Include="Migrations\202301120500514_AddCustomFieldsForRegistration.designer.cs">
+      <DependentUpon>202301120500514_AddCustomFieldsForRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -277,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301050944512_role-force.resx">
       <DependentUpon>202301050944512_role-force.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301120500514_AddCustomFieldsForRegistration.resx">
+      <DependentUpon>202301120500514_AddCustomFieldsForRegistration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
