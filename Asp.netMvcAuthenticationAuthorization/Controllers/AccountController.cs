@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Asp.netMvcAuthenticationAuthorization.Models;
+using System.Collections.Generic;
+using Asp.netMvcAuthenticationAuthorization.Migrations;
+using System.Threading;
 
 namespace Asp.netMvcAuthenticationAuthorization.Controllers
 {
@@ -17,15 +20,40 @@ namespace Asp.netMvcAuthenticationAuthorization.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        //2.1 first step for Add User to Role
         //For Add User Role
+        //Custom Code By Sithum 
+        private ApplicationRoleManager _roleManager;
+
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            //2.3 Thired step  Add User to Role
+            //For Add User Role
+            //Custom Code By Sithum 
+            RoleManager = roleManager;
+        }
+
+
+        //2.2 Seconnd step  Add User to Role
+        //For Add User Role
+        //Custom Code By Sithum 
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
         }
 
         public ApplicationSignInManager SignInManager
@@ -139,6 +167,14 @@ namespace Asp.netMvcAuthenticationAuthorization.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            //2.3 Thired step for  Add User to Role
+            //For Add User Role
+            //Custom Code By Sithum 
+
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in RoleManager.Roles)
+                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            ViewBag.Roles = list;
             return View();
         }
 
@@ -155,6 +191,13 @@ namespace Asp.netMvcAuthenticationAuthorization.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // 2.4 Forth step for  Add User to Role
+                    //For Add User Role
+                    //Custom Code By Sithum 
+
+                    result = await UserManager.AddToRoleAsync(user.Id,model.RoleName);
+
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

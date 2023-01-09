@@ -79,6 +79,11 @@ namespace Asp.netMvcAuthenticationAuthorization.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        // 2.5 fifth step for  Add User to Role
+        //For Add User Role
+        //Custom Code By Sithum 
+        public string RoleName { get; set; }
     }
 
     public class ResetPasswordViewModel
