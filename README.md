@@ -231,7 +231,7 @@ fellow up folling instructions along with the repository for better understandin
         public string RoleName { get; set; }
 
 
-2.66) In Views -> Register add following Code snippet
+2.6) In Views -> Register add following Code snippet
     // 2.6 sixth step for  Add User to Role
     //For Add User Role
     //Custom Code By Sithum
@@ -242,4 +242,14 @@ fellow up folling instructions along with the repository for better understandin
           @Html.DropDownListFor(m=> m.RoleName, new SelectList(ViewBag.Roles,"Value","Text",new { @class = "form-control"}))
         </div>
     </div>
+    
+    
+3)Add Global authorized attribute for all Controllers
+
+In App_Start Open FilterConfig and add following Code Snippet to RegisterGlobalFilters method
+
+            //Add Global authorized attribute for all Controllers
+            //Custom Code Snippet By Sithum
+            filters.Add(new AuthorizeAttribute());
+
 
