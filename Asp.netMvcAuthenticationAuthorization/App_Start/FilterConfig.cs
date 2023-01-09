@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.ComponentModel;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Asp.netMvcAuthenticationAuthorization
@@ -8,6 +9,11 @@ namespace Asp.netMvcAuthenticationAuthorization
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
+            //Add Global authorized attribute for all Controllers
+            //Custom Code Snippet By Sithum
+            filters.Add(new AuthorizeAttribute());
+
         }
     }
 }
