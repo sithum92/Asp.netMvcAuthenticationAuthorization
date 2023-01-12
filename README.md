@@ -302,7 +302,9 @@ In App_Start Open FilterConfig and add following Code Snippet to RegisterGlobalF
 ##6. Add Custom Fields 
 
 6.1) Open Models AccountViewModel and Add CustomFields for RegisterViewModel Method
+	
 6.2) Open Models  IdentityModels And add Custom Fields to class ApplicationUser
+	
 6.3) Open Controllers AccountController and in Register Method add parameters as like below
   var user = new ApplicationUser { UserName = model.Email, Email = model.Email , StaffNo = model.StaffNo, FullName = model.FullName, Address = model.Address, NIC = model.NIC, Mobile = model.Mobile, JoinDate = model.JoinDate, Notes = model.Notes };
 
