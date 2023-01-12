@@ -299,7 +299,7 @@ In App_Start Open FilterConfig and add following Code Snippet to RegisterGlobalF
 
 
 
-6)## Add Custom Fields 
+##6. Add Custom Fields 
 
 6.1) Open Models AccountViewModel and Add CustomFields for RegisterViewModel Method
 6.2) Open Models  IdentityModels And add Custom Fields to class ApplicationUser
