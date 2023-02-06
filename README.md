@@ -59,7 +59,17 @@ fellow up folling instructions along with the repository for better understandin
     //Custom Code By Sithum 
     //for Create a role with asp.net identity
 
- public class RoleViewModel
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Asp.netMvcAuthenticationAuthorization.Models
+{
+    //1.4 forth step
+    //Custom Code By Sithum 
+    //for Create a role with asp.net identity
+    public class RoleViewModel
     {
         public RoleViewModel() { }
 
@@ -72,7 +82,7 @@ fellow up folling instructions along with the repository for better understandin
         public string Id { get; set; }
         public string Name { get; set; }
     }
-
+}
 
 1.5) Open Controllers ans add controller name as "RoleController" and add folowing code 
 //(Controllers->RoleController.cs)
