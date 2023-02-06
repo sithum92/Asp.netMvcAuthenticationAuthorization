@@ -219,11 +219,17 @@ namespace Asp.netMvcAuthenticationAuthorization.Models
             //For Add User Role
             //Custom Code By Sithum 
 
+         //
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var role in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
             ViewBag.Roles = list;
-
+            return View();
+        }
 
 
 2.4)In Controllers->AccountController and in Register Method(POST) in Second if statement( if (result.Succeeded))  add following code snippet
