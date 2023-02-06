@@ -43,9 +43,10 @@ fellow up folling instructions along with the repository for better understandin
 1.3) In App_Start folder open Startup.Auth.cs class and in method "public void ConfigureAuth(IAppBuilder app)"method add folling code snippet 
 //( App_Start->Startup.Auth.cs->  public void ConfigureAuth(IAppBuilder app) 
 
-   //1.3 Thired step
+             //1.3 Thired step
             //Custom Code By Sithum 
             //for Create a role with asp.net identity
+
 
  app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
